@@ -1,0 +1,7 @@
+[[structures]]
+  template = "main.tmpl"
+  file = "main.rs"
+  directory = "src"
+[[structures]]
+  template = "cargo.tmpl"
+  file = "cargo.toml"

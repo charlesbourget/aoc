@@ -1,0 +1,6 @@
+[[structures]]
+  template = "src.tmpl"
+  file = "day%02d.go"
+[[structures]]  
+  template = "test.tmpl"
+  file = "day%02d_test.go"

@@ -1,0 +1,44 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	input, err := read("day{{printf "%02d" .Day}}/input.txt")
+	if err != nil {
+		fmt.Println("Error while reading input. ", err)
+		return
+	}
+
+	fmt.Printf("Part 1: %d\n", part1(input))
+	fmt.Printf("Part 2: %d\n", part2(input))
+}
+
+func part1(input []string) int {
+
+	return 0
+}
+
+func part2(input []string) int {
+
+	return 0
+}
+
+func read(path string) ([]string, error) {
+	file, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+
+	return lines, scanner.Err()
+}
