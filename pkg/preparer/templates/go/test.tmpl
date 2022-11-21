@@ -3,10 +3,12 @@ package main
 import (
 	"fmt"
 	"testing"
+
+	"github.com/charlesbourget/{{.Year}}/lib"
 )
 
 func TestPart1(t *testing.T) {
-	input, err := read("input.test")
+	input, err := lib.Read("input.test")
 	if err != nil {
 		fmt.Println("Error while reading input. ", err)
 		return
@@ -20,7 +22,7 @@ func TestPart1(t *testing.T) {
 }
 
 func TestPart2(t *testing.T) {
-	input, err := read("input.test")
+	input, err := lib.Read("input.test")
 	if err != nil {
 		fmt.Println("Error while reading input. ", err)
 		return

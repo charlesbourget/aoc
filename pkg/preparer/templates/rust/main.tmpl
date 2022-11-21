@@ -1,3 +1,44 @@
 fn main() {
-    println!("Hello, world!");
+    let lines = lib::read_input("input.txt");
+    
+    let part_1 = part_1(&lines);
+    std::println!("Part 1: {}", part_1);
+
+    let part_2 = part_2(&lines);
+    std::println!("Part 2: {}", part_2);
+}
+
+fn part_1(input: &[String]) -> i32 {
+
+    0
+}
+
+fn part_2(input: &[String]) -> i32 {
+
+    0
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn part_1_test() {
+        let test_input = lib::read_input("input.test");
+        let expected_result = 0;
+
+        let result = part_1(&test_input);
+
+        assert_eq!(expected_result, result);
+    }
+
+    #[test]
+    fn part_2_test() {
+        let test_input = lib::read_input("input.test");
+        let expected_result = 0;
+
+        let result = part_2(&test_input);
+
+        assert_eq!(expected_result, result);
+    }
 }
