@@ -20,13 +20,14 @@ type config struct {
 }
 
 type FileStructureConfig struct {
-	Structures []Structure `yaml:"structures"`
+	Structures  []Structure `toml:"structures"`
+	InputConfig string      `toml:"input"`
 }
 
 type Structure struct {
-	Template  string `yaml:"template"`
-	File      string `yaml:"file"`
-	Directory string `yaml:"directory"`
+	Template  string `toml:"template"`
+	File      string `toml:"file"`
+	Directory string `toml:"directory"`
 }
 
 const templateDir = "templates"
@@ -54,7 +55,7 @@ func (p Preparer) createStructure(workspace string) error {
 		}
 
 		if structure.Directory != "" {
-			if err := utils.CreateDir(filepath.Join(path, structure.Directory)); err != nil {
+			if err := utils.CreateDirRec(filepath.Join(path, structure.Directory)); err != nil {
 				return err
 			}
 
@@ -67,9 +68,20 @@ func (p Preparer) createStructure(workspace string) error {
 		}
 	}
 
-	err = createInputFile(filepath.Join(path, "input.txt"), day, year, p.Session)
-	if err != nil {
-		return err
+	if fileStructureConfig.InputConfig != "" {
+		var directory = fileStructureConfig.InputConfig
+		if strings.Contains(directory, "%02d") {
+			directory = fmt.Sprintf(fileStructureConfig.InputConfig, day)
+		}
+
+		if err := utils.CreateDirRec(filepath.Join(workspace, directory)); err != nil {
+			return err
+		}
+
+		err = createInputFile(filepath.Join(workspace, directory, "input.txt"), day, year, p.Session)
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil

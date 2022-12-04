@@ -1,7 +1,7 @@
+input = "inputs/day%02d"
+
 [[structures]]
-  template = "main.tmpl"
-  file = "main.rs"
-  directory = "src"
-[[structures]]
-  template = "cargo.tmpl"
-  file = "cargo.toml"
+  template = "main.gotmpl"
+  file = "day%02d.rs"
+  directory = "src/bin"
+ 

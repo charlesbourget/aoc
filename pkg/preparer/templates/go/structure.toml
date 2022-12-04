@@ -1,6 +1,8 @@
+input = "day%02d"
+
 [[structures]]
-  template = "src.tmpl"
+  template = "src.gotmpl"
   file = "day%02d.go"
 [[structures]]  
-  template = "test.tmpl"
+  template = "test.gotmpl"
   file = "day%02d_test.go"

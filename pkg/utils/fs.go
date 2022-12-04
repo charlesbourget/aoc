@@ -7,6 +7,19 @@ import (
 	"github.com/pelletier/go-toml/v2"
 )
 
+func CreateDirRec(path string) error {
+	if FileExists(path) {
+		return nil
+	}
+
+	err := os.MkdirAll(path, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func CreateDir(path string) error {
 	if FileExists(path) {
 		return nil

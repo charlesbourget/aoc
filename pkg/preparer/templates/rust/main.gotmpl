@@ -1,5 +1,7 @@
+use aoc2022::read_input;
+
 fn main() {
-    let lines = lib::read_input("input.txt");
+    let lines = read_input("inputs/day{{printf "%02d" .Day}}/input.txt");
     
     let part_1 = part_1(&lines);
     std::println!("Part 1: {}", part_1);
@@ -8,12 +10,12 @@ fn main() {
     std::println!("Part 2: {}", part_2);
 }
 
-fn part_1(input: &[String]) -> i32 {
+fn part_1(_input: &[String]) -> u32 {
 
     0
 }
 
-fn part_2(input: &[String]) -> i32 {
+fn part_2(_input: &[String]) -> u32 {
 
     0
 }
@@ -24,7 +26,7 @@ mod tests {
 
     #[test]
     fn part_1_test() {
-        let test_input = lib::read_input("input.test");
+        let test_input = read_input("inputs/day{{printf "%02d" .Day}}/input.test");
         let expected_result = 0;
 
         let result = part_1(&test_input);
@@ -34,7 +36,7 @@ mod tests {
 
     #[test]
     fn part_2_test() {
-        let test_input = lib::read_input("input.test");
+        let test_input = read_input("inputs/day{{printf "%02d" .Day}}/input.test");
         let expected_result = 0;
 
         let result = part_2(&test_input);
